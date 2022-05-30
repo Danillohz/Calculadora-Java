@@ -1,6 +1,5 @@
 package br.com.danillo.calculadoraview;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,17 +10,19 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.JSpinner;
 import java.awt.Color;
+import javax.swing.JLabel;
 
 public class MainViewCal extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtresult;
-	private JLabel lbresult;
 
 	private String numero1 = "0";
 	private String numero2 = "0";
@@ -86,7 +87,17 @@ public class MainViewCal extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("%");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtresult.setText(txtresult.getText() + "%");
+				sinal = "%";
+				check = true;
+				checkrestart = false;
+				
+			}
+		});
+		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 17));
 		btnNewButton.setBounds(4, 0, 104, 60);
 		panel.add(btnNewButton);
 
@@ -182,6 +193,9 @@ public class MainViewCal extends JFrame {
 					break;
 				case "^":
 					result = Math.pow(numeroum, numeropotencia);
+					break;
+				case "%":
+					result = numeroum/100 * numerodois;
 					break;
 				}
 				String resultS = String.valueOf(result);
@@ -535,8 +549,12 @@ public class MainViewCal extends JFrame {
 		panel_1.setLayout(null);
 
 		txtresult = new JTextField();
+		txtresult.setDisabledTextColor(Color.WHITE);
+		txtresult.setOpaque(false);
+		txtresult.setVerifyInputWhenFocusTarget(false);
+		txtresult.setBackground(new Color(0f,0f, 0f, 0f));
 		txtresult.setHorizontalAlignment(SwingConstants.RIGHT);
-		txtresult.setBounds(70, 128, 350, 27);
+		txtresult.setBounds(0, 128, 420, 38);
 		panel_1.add(txtresult);
 		txtresult.setColumns(10);
 	}
@@ -549,5 +567,4 @@ public class MainViewCal extends JFrame {
 		txtresult.setText(null);
 
 	}
-
 }
