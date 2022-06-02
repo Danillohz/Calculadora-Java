@@ -13,6 +13,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import javax.swing.JLabel;
 
 public class MainViewCal extends JFrame {
 
@@ -106,6 +107,18 @@ public class MainViewCal extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 17));
 		btnNewButton.setBounds(4, 3, 104, 57);
+
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtresult.setText(txtresult.getText() + "%");
+				sinal = "%";
+				check = true;
+				checkrestart = false;
+				
+			}
+		});
+		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 17));
+		btnNewButton.setBounds(4, 0, 104, 60);
 		panel.add(btnNewButton);
 
 		JButton btnce = new JButton("CE");
@@ -662,8 +675,10 @@ public class MainViewCal extends JFrame {
 		txtresult.setVerifyInputWhenFocusTarget(false);
 		txtresult.setBackground(new Color(0f, 0f, 0f, 0f));
 		txtresult.setBorder(null);
+		txtresult.setBackground(new Color(0f,0f, 0f, 0f));
 		txtresult.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtresult.setBounds(0, 88, 430, 78);
+		txtresult.setBounds(0, 128, 420, 38);
 		panel_1.add(txtresult);
 		txtresult.setColumns(10);
 	}
@@ -676,3 +691,4 @@ public class MainViewCal extends JFrame {
 		txtresult.setText(null);
 	}
 }
+
