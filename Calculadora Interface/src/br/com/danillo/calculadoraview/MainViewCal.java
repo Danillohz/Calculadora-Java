@@ -91,36 +91,6 @@ public class MainViewCal extends JFrame {
 		panel.setBackground(new Color(0f, 0f, 0f, 0f));
 		panel.setOpaque(false);
 
-		JButton btnNewButton = new JButton("%");
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.setOpaque(true);
-		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setBorder(null);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtresult.setText(txtresult.getText() + "%");
-				sinal = "%";
-				check = true;
-				checkrestart = false;
-
-			}
-		});
-		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 17));
-		btnNewButton.setBounds(4, 3, 104, 57);
-
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				txtresult.setText(txtresult.getText() + "%");
-				sinal = "%";
-				check = true;
-				checkrestart = false;
-				
-			}
-		});
-		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 17));
-		btnNewButton.setBounds(4, 0, 104, 60);
-		panel.add(btnNewButton);
-
 		JButton btnce = new JButton("CE");
 		btnce.setContentAreaFilled(false);
 		btnce.setOpaque(true);
@@ -128,14 +98,11 @@ public class MainViewCal extends JFrame {
 		btnce.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnce.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			   if(sinal != "_") {
-				txtresult.setText(numero1 + sinal);
-			   }
+				if (sinal != "_") {
+					txtresult.setText(numero1 + sinal);
+				}
 				numerodois = 0;
-			
-				
-				
-				
+
 			}
 		});
 		btnce.setBounds(110, 3, 104, 57);
@@ -160,8 +127,6 @@ public class MainViewCal extends JFrame {
 		btndelet.setBackground(Color.WHITE);
 		btndelet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
 
 			}
 		});
@@ -268,7 +233,7 @@ public class MainViewCal extends JFrame {
 					result = numeroum / 100 * numerodois;
 					break;
 				case "=":
-                    result = numeroum;
+					result = numeroum;
 					break;
 				}
 
@@ -662,6 +627,23 @@ public class MainViewCal extends JFrame {
 		btnseis.setBounds(216, 183, 104, 57);
 		panel.add(btnseis);
 
+		JButton btnporcen = new JButton("%");
+		btnporcen.setFont(new Font("Arial Black", Font.PLAIN, 17));
+		btnporcen.setContentAreaFilled(false);
+		btnporcen.setOpaque(true);
+		btnporcen.setBackground(Color.WHITE);
+		btnporcen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtresult.setText(txtresult.getText() + "%");
+				sinal = "%";
+				check = true;
+				checkrestart = false;
+
+			}
+		});
+		btnporcen.setBounds(4, 3, 104, 57);
+		panel.add(btnporcen);
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 0, 430, 166);
 		contentPane.add(panel_1);
@@ -675,7 +657,7 @@ public class MainViewCal extends JFrame {
 		txtresult.setVerifyInputWhenFocusTarget(false);
 		txtresult.setBackground(new Color(0f, 0f, 0f, 0f));
 		txtresult.setBorder(null);
-		txtresult.setBackground(new Color(0f,0f, 0f, 0f));
+		txtresult.setBackground(new Color(0f, 0f, 0f, 0f));
 		txtresult.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtresult.setBounds(0, 88, 430, 78);
 		txtresult.setBounds(0, 128, 420, 38);
@@ -691,4 +673,3 @@ public class MainViewCal extends JFrame {
 		txtresult.setText(null);
 	}
 }
-
